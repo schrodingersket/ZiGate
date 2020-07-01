@@ -820,7 +820,9 @@ PRIVATE bool_t bFbIsOpertationalCluster(uint16         u16ClusterID,
             case 0x001B:            /* Appliance Control */
             case 0x0B00:            /* Appliance Identification */
             case 0x0B01:            /* Appliance Events and Alerts */
-            case 0x0B02:            /* Appliance Statistics */    
+            case 0x0B02:            /* Appliance Statistics */
+
+            case 0xFC03:            /* Develco VOC Measurement */
                 return TRUE;
             break;
             default:

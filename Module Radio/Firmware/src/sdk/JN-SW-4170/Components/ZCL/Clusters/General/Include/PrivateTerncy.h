@@ -16,7 +16,7 @@
  *
  * $LastChangedDate: 2018-11-25 $
  *
- * $Id:  PrivatePhilips.h  $
+ * $Id:  PrivateTerncy.h  $
  *
 */
 

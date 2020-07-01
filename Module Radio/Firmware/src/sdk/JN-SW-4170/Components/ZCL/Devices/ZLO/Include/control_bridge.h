@@ -115,6 +115,10 @@ extern "C" {
 #ifdef CLD_PRIVATE_TERNCY
 #include "PrivateTerncy.h"
 #endif
+#ifdef CLD_DEVELCO_VOC_MEASUREMENT
+#include "DevelcoVOCMeasurement.h"
+#endif
+
 
 
 #ifdef CLD_GREENPOWER
@@ -290,9 +294,9 @@ typedef struct
     #if (defined CLD_RELATIVE_HUMIDITY_MEASUREMENT) && (defined RELATIVE_HUMIDITY_MEASUREMENT_CLIENT)
         tsZCL_ClusterInstance sRelativeHumidityMeasurementClient;
     #endif
-#if (defined CLD_PRESSURE_MEASUREMENT) && (defined PRESSURE_MEASUREMENT_CLIENT)
+	#if (defined CLD_PRESSURE_MEASUREMENT) && (defined PRESSURE_MEASUREMENT_CLIENT)
        tsZCL_ClusterInstance sCLD_PressureMeasurementClient;
-   #endif
+    #endif
 
     #if (defined CLD_DIAGNOSTICS) && (defined DIAGNOSTICS_CLIENT)
         tsZCL_ClusterInstance sDiagnosticClient;
@@ -320,6 +324,10 @@ typedef struct
     #endif
 	#if (defined CLD_PRIVATE_TERNCY)
        tsZCL_ClusterInstance sPrivateTerncy;
+    #endif
+
+    #if (defined CLD_DEVELCO_VOC_MEASUREMENT) && (defined DEVELCO_VOC_MEASUREMENT_CLIENT)
+       tsZCL_ClusterInstance sDevelcoVOCMeasurementClient;
     #endif
 
 
@@ -581,6 +589,10 @@ typedef struct
         tsCLD_PrivateTerncy sPrivateTerncyCluster;
     #endif
 
+    #if (defined CLD_DEVELCO_VOC_MEASUREMENT) && (defined DEVELCO_VOC_MEASUREMENT_CLIENT)
+        tsCLD_DevelcoVOCMeasurement sDevelcoVOCMeasurementClientCluster;
+    #endif
+
 } tsZLO_ControlBridgeDevice;
 
 
@@ -592,7 +604,7 @@ PUBLIC teZCL_Status eZLO_RegisterControlBridgeEndPoint( uint8                   
                                                         tfpZCL_ZCLCallBackFunction    cbCallBack,
                                                         tsZLO_ControlBridgeDevice*    psDeviceInfo );
 
-PUBLIC teZCL_Status eZLO_RegisterControlBridgeEndPointLivolo( uint8                         u8EndPointIdentifier,
+PUBLIC teZCL_Status eZLO_RegisterControlBridgeEndPointLivolo( uint8                   u8EndPointIdentifier,
                                                         tfpZCL_ZCLCallBackFunction    cbCallBack,
                                                         tsZLO_ControlBridgeDevice*    psDeviceInfo );
 

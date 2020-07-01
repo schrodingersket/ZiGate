@@ -1359,23 +1359,37 @@ void vAPP_ZCL_DeviceSpecific_Init ( void )
 teZCL_Status eApp_ZLO_RegisterEndpoint ( tfpZCL_ZCLCallBackFunction    fptr )
 {
 
+	vLog_Printf(TRACE_ZCL, LOG_DEBUG,"\n Registering Orbivo endpoint...");
 	eZLO_RegisterControlBridgeEndPoint ( ZIGBEENODECONTROLBRIDGE_ORVIBO_ENDPOINT,
 	                                                fptr,
 	                                                &sControlBridge );
+
+	vLog_Printf(TRACE_ZCL, LOG_DEBUG,"\n Registering Livolo endpoint...");
 	eZLO_RegisterControlBridgeEndPointLivolo ( ZIGBEENODECONTROLBRIDGE_LIVOLO_ENDPOINT,
 				                                                fptr,
 				                                                &sControlBridge );
+
+	vLog_Printf(TRACE_ZCL, LOG_DEBUG,"\n Registering Terncy endpoint...");
 	eZLO_RegisterControlBridgeEndPoint ( ZIGBEENODECONTROLBRIDGE_TERNCY_ENDPOINT,
 		                                                fptr,
 		                                                &sControlBridge );
+
+	vLog_Printf(TRACE_ZCL, LOG_DEBUG,"\n Registering Konke endpoint...");
 	eZLO_RegisterControlBridgeEndPoint ( ZIGBEENODECONTROLBRIDGE_KONKE_ENDPOINT,
 			                                                fptr,
 			                                                &sControlBridge );
 
+	vLog_Printf(TRACE_ZCL, LOG_DEBUG,"\n Registering Wiser endpoint...");
 	eZLO_RegisterControlBridgeEndPoint ( ZIGBEENODECONTROLBRIDGE_WISER_ENDPOINT,
 				                                                fptr,
 				                                                &sControlBridge );
 
+	vLog_Printf(TRACE_ZCL, LOG_DEBUG,"\n Registering Develco endpoint..");
+	eZLO_RegisterControlBridgeEndPoint ( ZIGBEENODECONTROLBRIDGE_DEVELCO_ENDPOINT,
+				                                                fptr,
+				                                                &sControlBridge );
+
+	vLog_Printf(TRACE_ZCL, LOG_DEBUG,"\n Registering ZLO endpoint...\n");
     return eZLO_RegisterControlBridgeEndPoint ( ZIGBEENODECONTROLBRIDGE_ZLO_ENDPOINT,
                                                 fptr,
                                                 &sControlBridge );

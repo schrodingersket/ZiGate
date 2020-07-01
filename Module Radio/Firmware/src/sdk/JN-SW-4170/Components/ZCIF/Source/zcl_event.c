@@ -602,16 +602,18 @@ PRIVATE void vZCL_HandleDataIndication(ZPS_tsAfEvent *pZPSevent)
             u8Error=0;
 
         }
-        //workaround to avoid sending back default response with an error code for different devices like Xiaomi 0x115F , schneider 0x105E
 
+        //workaround to avoid sending back default response with an error code for different devices like Xiaomi 0x115F , schneider 0x105E
 	    if(  sZCL_HeaderParams.bManufacturerSpecific &&
                 ((sZCL_HeaderParams.u16ManufacturerCode == 0x1228) ||
                  (sZCL_HeaderParams.u16ManufacturerCode == 0x15D2) ||
-                 (sZCL_HeaderParams.u16ManufacturerCode == 0x115F) ||
+                 (sZCL_HeaderParams.u16ManufacturerCode == 0x115F) || // Xiaomi
                  (sZCL_HeaderParams.u16ManufacturerCode == 0x100B) ||
                  (sZCL_HeaderParams.u16ManufacturerCode == 0x1234) ||
-                 (sZCL_HeaderParams.u16ManufacturerCode == 0x105E) ||
+                 (sZCL_HeaderParams.u16ManufacturerCode == 0x105E) || // Schneider
+                 (sZCL_HeaderParams.u16ManufacturerCode == 0x1015) || // DEVELCO
                  (sZCL_HeaderParams.u16ManufacturerCode == 0x1021)))
+
 	    {
 		  vLog_Printf(1,LOG_DEBUG, "BEN: %s - %d - %s: workaround to avoid sending back default response with an error code for different devices: sZCL_HeaderParams.bManufacturerSpecific: 0x%04x\n", __FILE__, __LINE__, __func__,sZCL_HeaderParams.bManufacturerSpecific);
 		   u8Error=0;
